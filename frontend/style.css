@@ -1,0 +1,140 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    width: 100%;
+    max-width: 720px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+}
+
+.top-background-box {
+    background: linear-gradient(160deg, #f7cdd5 0%, #e8bfc8 40%, #d9b8d0 70%, #c9b4d6 100%);
+    padding: 28px 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+input[type="text"], input[type="email"], input[type="phone"], input[type="number"], select{
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+}
+
+.fullname-box {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    row-gap: 10px;
+    align-items: center;
+}
+
+.surname-box, .name-box, .patronymic-box, .latin-surname-box, .latin-name-box {
+    display: contents;
+}
+
+.surname-box label, .name-box label, .patronymic-box label, .latin-surname-box label, .latin-name-box label {
+    grid-column: 1;
+}
+
+.surname-box input, .name-box input  .patronymic-box input, .latin-surname-box input, .latin-name-box input {
+    grid-column: 2;
+    width: 100%;
+}
+
+.checkbox-box {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: -4px;
+}
+
+.checkbox-box input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+}
+
+.birthday-box {
+    display: grid;
+    grid-template-columns: 160px auto auto auto;
+    align-items: center;
+    gap: 10px;
+}
+
+.birthday-box label {
+    grid-column: 1;
+}
+
+
+.marital-status-box, .education-box {
+    display: grid;
+    grid-template-columns: 160px auto;
+    align-items: center;
+    gap: 10px;
+}
+
+.marital-status-box select,
+.education-box select {
+    width: 220px;
+}
+
+.contact-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.phone-box, .email-box {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    align-items: center;
+    gap: 10px;
+}
+
+.bottom-background-box {
+    background: linear-gradient(160deg, #bfc4de 0%, #c4c9e0 40%, #b8bdd8 100%);
+    padding: 24px 36px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.agreement-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 420px;
+}
+
+button{
+    border: 1px solid red;
+    width: 50%;
+    height: 3vh;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    color: grey;
+}
+
+button:hover{
+    background-color: #e8bfc8;
+    color: #a1a8d3;
+}
+
+.error{
+    height: 1vh;
+    border-radius: 10px;
+    background-color: rgb(183, 58, 79);
+    padding: 10px 20px;
+    text-align: center;
+    display: none;
+}

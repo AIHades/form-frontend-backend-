@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <h1>Заявка на экскурсионный полет на Марс</h1>
+    <form id="requestForm">
+        <div class="top-background-box">
+            <div class="fullname-box">
+                <div class="surname-box">
+                    <label for="">Фамилия</label>
+                    <input type="text" name="surnameUser">
+
+                    <div class="checkbox-box">
+                        <input type="checkbox" name="changedSurnameBefore">
+                        <label for="">ранее менялась</label>
+                    </div>
+                </div>
+
+                <div class="name-box">
+                    <label for="">Имя</label>
+                    <input type="text" name="nameUser" id="">
+                </div>
+
+
+                <div class="patronymic-box">
+                    <label for="">Отчество</label>
+                    <input type="text" name="patronymicUser">
+                </div>
+
+                <div class="latin-surname-box">
+                    <label for="">Фамилия латиницей</label>
+                    <input type="text" name="latinSurnameUser" id="">
+                </div>
+
+                <div class="latin-name-box">
+                    <label for="">Имя латиницей</label>
+                    <input type="text" name="latinNameUser" id="">
+                </div>
+            </div>
+            <div class="birthday-box">
+                <label for="">Дата рождения</label>
+                <input type="number" name="day" min="1" max="31" placeholder="День">
+                <select name="month" id="monthSelect">
+                    <option value="">Месяц</option>
+                    <option value="january">Январь</option>
+                    <option value="february">Февраль</option>
+                    <option value="march">Март</option>
+                    <option value="april">Апрель</option>
+                    <option value="may">Май</option>
+                    <option value="june">Июнь</option>
+                    <option value="july">Июль</option>
+                    <option value="august">Август</option>
+                    <option value="september">Сентябрь</option>
+                    <option value="october">Октябрь</option>
+                    <option value="november">Ноябрь</option>
+                    <option value="december">Декабрь</option>
+                </select>
+                <input type="number" name="year" min="1900" max="2026" placeholder="Год">
+            </div>
+
+            <div class="marital-status-box">
+                <label for="">Семейное положение</label>
+                <select name="maritalStatus" id="maritalStatusSelect">
+                    <option value=""></option>
+                    <option value="not-married">Не состоит в браке</option>
+                    <option value="married">Женат/замужем</option>
+                    <option value="divorced">Разведен/разведена</option>
+                    <option value="widower">Вдовец/вдова</option>
+                </select>
+            </div>
+
+            <div class="education-box">
+                <label for="">Образование</label>
+                <select name="education" id="educationSelect">
+                    <option value=""></option>
+                    <option value="pre-school">Дошкольное</option>
+                    <option value="primary-general">Начальное общее</option>
+                    <option value="basic-general">Основное общее</option>
+                    <option value="secondary-general">Среднее общее</option>
+                    <option value="secondary-vocational">Среднее профессиональное</option>
+                    <option value="Higher">Высшее</option>
+                </select>
+            </div>
+
+            <div class="contact-box">
+                <h2>Контактная информация</h1>
+                <div class="phone-box">
+                    <label for="">Моб. телефон</label>
+                    <input type="phone" name="phone" placeholder="+7">
+                </div>
+                <div class="email-box">
+                    <label for="">Электронная почта</label>
+                    <input type="email" name="email" placeholder="Введите почту">
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="bottom-background-box">
+            <div class="agreement-box">
+                <input type="checkbox" name="agreement">
+                <label for="">Ставя эту галочку, я подтверждаю, что поставил ее в трезвом уме и твердой памяти</label>
+            </div>
+            <button type="submit">Полететь на Марс</button>
+
+            <div class="error" id="emailError">Некорректный email</div>
+        </div>
+
+    </form>
+    
+</body>
+</html>
