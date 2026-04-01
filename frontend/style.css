@@ -116,7 +116,7 @@ input[type="text"], input[type="email"], input[type="phone"], input[type="number
     max-width: 420px;
 }
 
-button{
+button[type="submit"]{
     border: 1px solid red;
     width: 50%;
     height: 3vh;
@@ -125,7 +125,7 @@ button{
     color: grey;
 }
 
-button:hover{
+button[type="submit"]:hover{
     background-color: #e8bfc8;
     color: #a1a8d3;
 }
@@ -174,4 +174,108 @@ button:hover{
     cursor: pointer;
     transition: transform .1s ease;
     align-self: flex-start;
+}
+
+.user-data {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    border-radius: 15px;
+    background: rgba(231, 142, 237, 0.4);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.user-data:hover {
+    transform: translateX(5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.modal{
+    position: fixed;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9998;
+    background-color: rgba(0, 0, 0, .3);
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.modal__box{
+    max-width: 500px;
+    padding: 45px;
+    z-index: 1;
+    background-color: white;
+    margin: 30px 15px;
+    box-shadow: 19px 17px 8px 0px rgba(34, 60, 80, 0.2);
+    transform: scale(0);
+    position: relative;
+}
+
+.modal__box{
+    max-width: 500px;
+    padding: 45px;
+    z-index: 1;
+    background-color: white;
+    margin: 30px 15px;
+    box-shadow: 19px 17px 8px 0px rgba(34, 60, 80, 0.2);
+    transform: scale(0);
+    position: relative;
+}
+
+.modal{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .4s, visibility .4s;
+}
+
+.modal.open{
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal.open .modal__box{
+    transform: scale(1);
+    transition: transform .8s;
+}
+
+.modal__close-btn{
+    border: none;
+    background-color: transparent;
+    /* padding: 5px; */
+    position: absolute;
+    top: 2px;
+    right: 1px;
+}
+
+.modal__close-btn svg {
+    transition: transform 0.3s;
+}
+
+.modal__close-btn:hover svg {
+    transform: rotate(180deg);
 }
