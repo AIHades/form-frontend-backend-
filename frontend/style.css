@@ -138,3 +138,40 @@ button:hover{
     text-align: center;
     display: none;
 }
+
+.svg-icon-arrow:hover{
+    transform: scale(1.5);
+    transition: .3s ease;
+}
+
+
+.pop-up-window-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.users-box {
+    display: none;
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    width: 500px;
+    max-height: 100vh;
+    overflow-y: auto;
+    box-shadow: -18px 0px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.users-box.open {
+    display: block;
+}
+
+.svg-icon-arrow {
+    cursor: pointer;
+    transition: transform .1s ease;
+    align-self: flex-start;
+}
