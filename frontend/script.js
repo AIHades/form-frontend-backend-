@@ -2,10 +2,8 @@ const formElement = document.getElementById("requestForm");
 
 console.log(formElement.elements);
 
-let POST_result = null;
-let GET_result = null;
-
 const usersBoxElement = document.querySelector(".users-box");
+const searchUserElement = document.getElementById("userSearch")
 
 
 function createUser(className, user) {  
@@ -23,25 +21,40 @@ function createUser(className, user) {
 };
 
 
-const get_users_data = async () => {
-    const data = await fetch("http://localhost:8000/form", {
-        method: "GET",
-    });
+const show_users = (users) => {
+    usersBoxElement.querySelectorAll(".user-data").forEach(value => value.remove());
 
-    if (!data.ok) {
-        throw new Error(`Ошибка: ${data.status}`);
-    }
-
-    GET_result = await data.json();
-    console.log("Данные с сервера GET:", GET_result);
-
-    usersBoxElement.innerHTML = ""; // чистка. Чтоб не дублировались данные
-
-
-    GET_result.forEach((user) => {
+    users.forEach((user) => {
         usersBoxElement.appendChild(createUser("user-data", user));
     });
-}
+};
+
+
+const get_users_data = async () => {
+    const data = await fetch("http://localhost:8000/form");
+    const GET_all_users = await data.json();
+    show_users(GET_all_users);
+};
+
+
+const get_user_search = async (query) => {
+    const search = await fetch(
+        `http://localhost:8000/form/search?queryName=${encodeURIComponent(query)}`
+    );
+    const result = await search.json();
+    show_users(result);
+};
+
+
+searchUserElement.addEventListener("input", async (event) => {
+    const value = event.target.value;
+
+    if (value.length > 0) {
+        await get_user_search(value);
+    } else {
+        await get_users_data();
+    }
+});
 
 
 formElement.addEventListener("submit", async (event) => {
@@ -77,11 +90,7 @@ formElement.addEventListener("submit", async (event) => {
             body: JSON.stringify(formData),
         });
 
-    if (!response.ok) {
-        throw new Error(`Ошибка: ${response.status}`);
-    }
-
-    POST_result = await response.json();
+    const POST_result = await response.json();
     console.log("Данные с сервера POST:", POST_result);
     alert("Форма успешно отправлена!");
 
@@ -115,12 +124,12 @@ arrowElement.addEventListener("click", () => {
 });
 
 
-
-
 const modalContent = document.getElementById("modal-content");
 
 usersBoxElement.addEventListener("click", (event) => {
     const userElement = event.target.closest('.user-data');
+
+    if (!userElement) return;
 
     const user = JSON.parse(userElement.dataset.user);
 
