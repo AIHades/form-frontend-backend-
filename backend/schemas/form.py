@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field, EmailStr
 
 
-class SUserData(BaseModel):
+class SCreateUser(BaseModel):
     surnameUser: str = Field(
                                 ..., 
                                 min_length = 1, 
@@ -66,7 +66,7 @@ class SUserData(BaseModel):
                         )
     phoneNumber: str = Field(
                             ..., 
-                            min_length = 15, 
+                            min_length = 5, 
                             max_length = 15,
                             description="Номер телефона пользователя",
                         )
@@ -76,3 +76,7 @@ class SUserData(BaseModel):
                             max_length = 70,
                             description="Email пользователя",
                         )
+    
+
+class SUserData(SCreateUser):
+    id: int
